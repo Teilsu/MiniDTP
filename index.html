@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MiniDTP</title>
+  <style>
+    :root{
+      --bg:#07140a;
+      --panel:#0c1f12;
+      --muted:#9fc8a7;
+      --accent:#6aff9c;
+      --glass: rgba(255,255,255,0.03);
+    }
+    html,body{height:100%;}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,var(--bg),#060708);
+      color:#e6eef6;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      align-items:flex-start; /* top alignment */
+      justify-content:flex-start; /* left alignment */
+      padding:48px;
+    }
+    .card{
+      background:linear-gradient(180deg,var(--panel), rgba(255,255,255,0.02));
+      border:1px solid rgba(255,255,255,0.04);
+      box-shadow:0 6px 24px rgba(2,6,23,0.6);
+      padding:28px;
+      border-radius:12px;
+      width:100%;
+      max-width:none;
+    }
+    h1{ margin:0 0 15px 0;
+      font-size:18px;
+      font-weight:600;
+      text-align:left; /* explicitly left */
+      color:#e6eef6;
+    }
+    p.lead{ margin:0; color:var(--muted); text-align:left;}
+    details{
+      background:var(--glass);
+      border:1px solid rgba(255,255,255,0.03);
+      padding:12px 14px;
+      border-radius:8px;
+      width:100%;
+      box-sizing:border-box;
+    }
+    summary{
+      list-style:none;
+      cursor:pointer;
+      outline:none;
+      user-select:text; -webkit-user-select:text; -moz-user-select:text;
+      font-weight:600;
+      margin-top:0;
+      display:block;
+      width:100%;
+    }
+    summary::-webkit-details-marker{display:none}
+    .link{
+      display:inline-block;
+      margin-top:4px;
+      text-decoration:none;
+      padding:8px 12px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,0.04);
+      background:rgba(255,255,255,0.02);
+      font-weight:500;
+    }
+    .note{font-size:13px;color:var(--muted);margin-top:8px}
+  </style>
+</head>
+<body>
+  <main class="card" role="main">
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Spawanie</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Połącz w jedną krzywą o jednakowym wypełnieniu i konturze
+  </span>
+</summary>
+        <img src="img/Spawanie.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Przycinanie</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Pierwszy zaznaczony obiekt ucina fragment drugiego zaznaczonego
+  </span>
+</summary>
+        <img src="img/Przycinanie.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+	
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Część wspólna</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Utwórz obiekt z obszaru pokrywania się obiektów
+  </span>
+</summary>
+        <img src="img/Czesc_wspolna.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Uprość</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Przycina nakładające się obiekt tak jak są widoczne
+  </span>
+</summary>
+        <img src="img/Uprosc.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Wskaźnik</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Zaznacza obiekty i pozwala dokonać transformacji
+  </span>
+</summary>
+        <img src="img/Wskaznik.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Kształt</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Edytuje krzywe lub węzły
+  </span>
+</summary>
+        <img src="img/Ksztalt.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Krzywa Beziera</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Rysuje krzywą
+  </span>
+</summary>
+        <img src="img/Krzywa_Beziera.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Prostokąt</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Tworzy prostokąt, można wykorzystać do pomiarów
+  </span>
+</summary>
+        <img src="img/Prostokat.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Elipsa</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Tworzy elipse, można wykorzystać do pomiarów
+  </span>
+</summary>
+        <img src="img/Elipsa.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Obwiednia</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Zmienia kształt obiektu przez wykorzystanie węzłów obwiedni
+  </span>
+</summary>
+        <img src="img/Obwiednia.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Przezroczystość</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Nadaje tzw. efekt mieszania
+  </span>
+</summary>
+        <img src="img/Przezroczystosc.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Inteligentne wypełnienie</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Tworzy obiekt z nakładających się obszarów
+  </span>
+</summary>
+        <img src="img/Inteligentne_wypelnienie.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Efekty Płaskorzeźby</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Nadaje efekt płaskorzeźby dla mapy bitowej
+  </span>
+</summary>
+        <img src="img/Efekty_Plaskorzezby.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Krzywa Tonalna</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Pozwala korygować jasność, kontrast i kolory dla mapy bitowej
+  </span>
+</summary>
+        <img src="img/Krzywa_Tonalna.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Rozbij</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    [Ctrl+K] Rozbija obiekt na ścieżki
+  </span>
+</summary>
+        <img src="img/Rozbij.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Połącz</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    [Ctrl+L] Scala ścieżki w jeden obiekt
+  </span>
+</summary>
+        <img src="img/Polacz.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+	
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Obróć</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Obraca zaznaczony obiekt o wpisaną ilość stopni
+  </span>
+</summary>
+        <img src="img/Obrot.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+	
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Odbij Lustrzanie</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Odbija zaznaczony obiekt lustrzanie w pionie lub poziomie
+  </span>
+</summary>
+        <img src="img/Odbij.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+	
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Zmiania rozmiaru</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Zmienia rozmiar zaznaczonego obiektu lub grupy na wpisaną wartośc lub procent. Zamknięta kłódka zachowuje proporcje
+  </span>
+</summary>
+        <img src="img/Rozmiar.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+	
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Efekt Mnożenia - Sublimacja</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Nadaje "Mnożenie", symulując efekt sublimacyjny
+  </span>
+</summary>
+        <img src="img/Mnozenie.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+	
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Dodanie 2% żółtego - Digital Print</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Maszyny nie "widzą" białego koloru więc dodajemy do niego odrobinę żółtego. Dotyczy tylko map bitowych
+  </span>
+</summary>
+        <img src="img/Dodaj_zolty.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">[ ]</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Przenosi obiekt wyżej lub niżej
+  </span>
+</summary>
+        <img src="img/wyzej_nizej.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Dodaj węzły</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Dodaje węzły gdy krzywa jest zaznaczona narzędziem "Kształt". Obiekt musi być zamieniony na krzywą [Ctrl+Q]
+  </span>
+</summary>
+        <img src="img/Dodaj_wezly.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Redukcja węzłów</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Redukuje ilość węzłów gdy krzywa jest zaznaczona narzędziem "Kształt". Usuwanie węzłów często powoduje zniknięcie całego obiektu. Obiekt musi być zamieniony na krzywą [Ctrl+Q]
+  </span>
+</summary>
+        <img src="img/Redukcja_wezlow.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Węzeł gładki/symetryczny/ostry</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Zaznacz węzeł narzędziem "Kształt" aby modyfikować
+  </span>
+</summary>
+        <img src="img/wezly.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Węzeł końcowy/początkowy</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Zaznacz węzeł narzędziem "Kształt" aby modyfikować
+  </span>
+</summary>
+        <img src="img/wezly_2.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Menadżer obiektów</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Podgląd na warstwy i obiekty. Uważaj na kontury, które zawsze zamieniamy na krzywe [Ctrl+Shift+Q]
+  </span>
+</summary>
+        <img src="img/Menadzer_obiektow.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Właściwości obiektu</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Pozwala zarządzać stylem m. in. konturu i wypełnienia
+  </span>
+</summary>
+        <img src="img/Wlasciwosci_obiektu.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Obrys</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Poszerza lub zwęża zaznaczony obiekt o wpisaną wartość
+  </span>
+</summary>
+        <img src="img/Obrys.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Soczewka</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Nadaje tzw. efekt mieszania
+  </span>
+</summary>
+        <img src="img/Soczewka.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Wyrównanie i rozkład</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Pozwala zarządzać położeniem obiektów np. zachować takie same odległości
+  </span>
+</summary>
+        <img src="img/Wyrownanie_i_rozklad.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Maskowanie kolorów bitmapy</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Pozwala ukryć zakres koloru, który wybierzesz "Pipetą"
+  </span>
+</summary>
+        <img src="img/Maskowanie.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Praca z przesunięciem</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Przesuwaj niepotrzebne obiekty strzałkami. Wartość wpisuj gdy nic nie jest zaznaczone
+  </span>
+</summary>
+        <img src="img/Przesuniecie.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Zaznaczanie shift/ctrl/alt</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    [Shift] zaznacza kliknięte obiekty, [Alt] zaznacza dotknięte obiekty, [Ctrl] zaznacza obiekt z grupy
+  </span>
+</summary>
+        <img src="img/Skroty_klaw.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Usuwanie soczewek</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Usuwa efekty soczewek/mieszania, są dwie opcje
+  </span>
+</summary>
+        <img src="img/Usun_soczewki.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Zmiana tekstu na krzywe</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    [Ctrl+Q]
+  </span>
+</summary>
+        <img src="img/Tekst_krzywe.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Zmiana na bitmape</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Minimum 300 DPI
+  </span>
+</summary>
+        <img src="img/zmiana_bitmapa.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Trasowanie</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Przed trasowaniem zmienić tryb bitmapy na RGB
+  </span>
+</summary>
+        <img src="img/Trasowanie.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Zmiana Trybu kolorów</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Zmienia tryb kolorów np. CMYK na RGB
+  </span>
+</summary>
+        <img src="img/Tryb_kolorow.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Tonalne wypełnienie</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Pozwala edytować wypełnienie tonalne/gradient
+  </span>
+</summary>
+        <img src="img/Tonalne.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Pantone i HKS</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Używamy tylko tych palet
+  </span>
+</summary>
+        <img src="img/farby.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+    <div class="item">
+      <details class="spoiler">
+        <summary>
+  <strong class="title">Zmiania DPI</strong>
+  <span class="desc" style="display:block; font-weight:400; margin-top:4px;">
+    Zmieniamy przez "Zmiana na bitmape"
+  </span>
+</summary>
+        <img src="img/DPI.png" alt="Obrazek" style="max-width:100%; margin:10px auto; border-radius:8px; display:block;" />
+      </details>
+    </div>
+
+  </main>
+</body>
+</html>
